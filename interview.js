@@ -96,7 +96,7 @@
 // context and then to callback queue
 
 /** question 9 */
-const person = { name: 'Lydia' };
+const person = { name: "Lydia" };
 
 function sayHi(age) {
   return `${this.name} is ${age} years old`;
@@ -107,3 +107,25 @@ console.log(sayHi.bind(person, 21));
 
 // call() will invoke the function
 // bind() will return a copy of sayHi() in which `this` will bind itself to `person` and `age` will bind itself to 21
+
+/** question 10 */
+console.log(typeof typeof 1);
+console.log(typeof console);
+console.log(typeof NaN);
+
+// console is an object provided by global window or node object
+// log(), error() and table() are methods available on console object
+
+/** question 11 */
+(() => {
+  let x, y;
+
+  try {
+    throw new Error();
+  } catch (x) {
+    (x = 1), (y = 2);
+    console.log(x);
+  }
+
+  console.log(x, y);
+})();
