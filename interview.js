@@ -129,3 +129,62 @@ console.log(typeof NaN);
 
   console.log(x, y);
 })();
+
+/** question 12 */
+console.log(
+  [
+    [0, 1],
+    [2, 3],
+  ].reduce(
+    (acc, curr) => {
+      return acc.concat(curr);
+    },
+    [1, 2]
+  )
+);
+
+/** question 13 */
+const numbers = new Set([1, 1, 2, 3, 4]);
+console.log(numbers);
+
+const browser = new Set("Firefox");
+console.log(browser);
+
+// values are not repeated inside set
+// 'F' is not the same as 'f'
+
+/** question 14 */
+console.log(NaN === NaN);
+
+// === checks two things: datatype and content
+// datatype is same i.e Number
+// Number('foo') = NaN and Number('pow') = NaN. No two NaN's are same because their content is different
+
+/** question 15 */
+async function func() {
+  return 10;
+}
+
+console.log(func());
+
+// async function always returns a promise
+
+/** question 16 */
+function delay() {
+  return new Promise((resolve) => setTimeout(resolve, 2000));
+}
+
+async function delayedLog(item) {
+  await delay();
+  console.log(item);
+}
+
+async function process(array) {
+  array.forEach(async (item) => {
+    await delayedLog(item);
+  });
+
+  console.log("Process completed");
+}
+
+process([1, 2, 3, 5]);
